@@ -2,6 +2,7 @@ const express = require('express');
 const adminModel = require('../models/adminModel')
 
 const router = new express.Router();
+const auth =  require('../middlewares/auth')
 
 router.post('/admin/login',async (req,res)=>{
     try {
@@ -14,6 +15,18 @@ router.post('/admin/login',async (req,res)=>{
     } catch (error) {
         res.status(401).send("invalid Login Data")
         console.log(error)
+    }
+})
+
+router.post('/admin/logout',auth,async(req,res)=>{
+    try {
+        req.user.tokens = req.user.tokens.filter((token)=>{
+            return token.token !== req.token
+        })
+        await req.user.save()
+        res.send()
+    } catch (e) {
+        res.status(500).send()  
     }
 })
 

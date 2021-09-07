@@ -7,8 +7,10 @@ const db = require('../database/db')
 
 //Routers
 const adminRouter = require('../routers/adminRouter')
+const orderRouter = require('../routers/orderRouter')
 
 app.use(adminRouter)
+app.use(orderRouter)
 
 //Set 404
 app.get('*', (req, res) => {
