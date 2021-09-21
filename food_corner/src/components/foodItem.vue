@@ -24,6 +24,11 @@ export default {
   },
   components: {
     quantityPicker,
+  methods:{
+    addItem: function addItem(item,value){
+      foodItems[item] = value
+    }
+  }
   },
 };
 </script>

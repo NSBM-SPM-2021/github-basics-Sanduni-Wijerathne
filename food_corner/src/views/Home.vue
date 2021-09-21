@@ -20,6 +20,11 @@ export default {
     navbarb,
     foodItem,
   },
+   data:function() {
+     return{
+       foodItems:{}
+     } 
+  },
 };
 </script>
 
