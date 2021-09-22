@@ -5,8 +5,11 @@
       <h4>{{name}}</h4>
       <p>{{desc}}</p>
       <div class="btnRow">
-        <quantityPicker/>
-        <button type="button" class="btn btn-primary">Buy now</button>
+        <div class="rowS">   
+          <p>Quantity</p>
+          <input v-model.number="itemCount" type="number">
+        </div>
+        <button v-on:click="addToCart(name)" type="button" class="btn btn-primary">Buy now</button>
       </div>
     </div>
       
@@ -14,21 +17,39 @@
 </template>
 
 <script>
-import quantityPicker from "@/components/quantityPicker.vue";
+
 
 export default {
   name: "foodItem",
+  data() {
+    return {
+      cart : [],
+      foodItem :{}
+    };
+  },
+  methods:{
+    addToCart :function(item){
+
+      this.cart = JSON.parse(localStorage.getItem("cart"))
+
+      if(this.cart == null){
+        this.cart = []
+      }
+      
+      localStorage.setItem("cart",JSON.stringify(this.cart))
+      
+      this.foodItem = {"fName" : item, "count" : this.itemCount}
+      this.cart.push(this.foodItem)
+      
+
+    }
+  },
   props: {
     name: String,
     desc: String
   },
   components: {
-    quantityPicker,
-  methods:{
-    addItem: function addItem(item,value){
-      foodItems[item] = value
-    }
-  }
+
   },
 };
 </script>
@@ -50,5 +71,13 @@ p{padding-top:0px;font-style:italic;}
 .btnRow{
   display: flex;
   justify-content: space-between;
+}
+.rowS{
+    display: flex;
+    justify-content: space-between;
+
+}
+p{
+    margin-right: 20px;
 }
 </style>
