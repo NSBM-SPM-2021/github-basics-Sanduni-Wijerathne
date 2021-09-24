@@ -7,15 +7,15 @@
     <form class="orderForm">
     <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
-        <input type="text" class="form-control" placeholder="Enter Name">
+        <input v-model="cusName" type="text" class="form-control" placeholder="Enter Name">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Phone number</label>
-        <input type="text" class="form-control" placeholder="Enter phone number">
+        <input v-model="phone" type="text" class="form-control" placeholder="Enter phone number">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Address</label>
-        <input type="text" class="form-control" placeholder="Enter address">
+        <input v-model="address" type="text" class="form-control" placeholder="Enter address">
     </div>
     <h3>Order list</h3>
     <table class="table">
@@ -49,7 +49,10 @@ export default {
   data() {
     return {
      cart : [],
-     modCart:[]
+     modCart:[],
+     cusName:"",
+     phone:"",
+     address:"",
     };
   },
   methods:{
@@ -65,6 +68,18 @@ export default {
           if(this.cart.length == 0){
               alert("There are no items in the cart. Please add more items before trying to order. Thank you!")
           }else{
+              if(this.cusName == ""){
+                  alert("Customer name required")
+                  return
+              }
+              if(this.phone == ""){
+                  alert("Phone number required")
+                  return
+              }
+              if(this.address == ""){
+                  alert("Address required")
+                  return
+              }
               //todo - call api to add order
 
               this.cart = []

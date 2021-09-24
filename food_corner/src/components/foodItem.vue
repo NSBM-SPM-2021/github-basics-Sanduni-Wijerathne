@@ -38,7 +38,8 @@ export default {
       if(this.itemCount > 0 && this.itemCount !=undefined){
         this.foodItem = {"fName" : item, "count" : this.itemCount}
         this.cart.push(this.foodItem)
-        sessionStorage.setItem("cart",JSON.stringify(this.cart))
+        sessionStorage.setItem("cart",JSON.stringify(this.cart)),
+        alert("Added successfully")
       }else{
         alert("Please enter the number of items you need")
       }
