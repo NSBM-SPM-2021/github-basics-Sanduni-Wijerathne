@@ -9,7 +9,7 @@
           <p>Quantity</p>
           <input v-model.number="itemCount" type="number">
         </div>
-        <button v-on:click="addToCart(name)" type="button" class="btn btn-primary">Buy now</button>
+        <button v-on:click="addToCart(name)" type="button" class="btn btn-primary">Add</button>
       </div>
     </div>
       
@@ -24,24 +24,25 @@ export default {
   data() {
     return {
       cart : [],
-      foodItem :{}
+      foodItem :{},
+      itemCount: 1
     };
   },
   methods:{
     addToCart :function(item){
-
-      this.cart = JSON.parse(localStorage.getItem("cart"))
-
+      this.cart = JSON.parse(sessionStorage.getItem("cart"))
       if(this.cart == null){
         this.cart = []
       }
-      
-      localStorage.setItem("cart",JSON.stringify(this.cart))
-      
-      this.foodItem = {"fName" : item, "count" : this.itemCount}
-      this.cart.push(this.foodItem)
-      
 
+      if(this.itemCount > 0 && this.itemCount !=undefined){
+        this.foodItem = {"fName" : item, "count" : this.itemCount}
+        this.cart.push(this.foodItem)
+        sessionStorage.setItem("cart",JSON.stringify(this.cart))
+      }else{
+        alert("Please enter the number of items you need")
+      }
+      
     }
   },
   props: {
