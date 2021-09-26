@@ -2,7 +2,10 @@
   <div class="col-lg-4 col-md-4 col-sm-4">
     <div style="padding : 30px">
       <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-fluid" />
-      <h4>{{name}}</h4>
+     <div class="rowS">
+        <h4>{{name}}</h4>
+        <h5>price : {{price}}</h5>
+      </div>
       <p>{{desc}}</p>
       <div class="btnRow">
         <div class="rowS">   
@@ -48,7 +51,8 @@ export default {
   },
   props: {
     name: String,
-    desc: String
+    desc: String,
+    price : Number
   },
   components: {
 
@@ -81,5 +85,8 @@ p{padding-top:0px;font-style:italic;}
 }
 p{
     margin-right: 20px;
+}
+h5{
+  color: red;
 }
 </style>
