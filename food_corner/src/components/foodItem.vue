@@ -39,9 +39,12 @@ export default {
       }
 
       if(this.itemCount > 0 && this.itemCount !=undefined){
-        this.foodItem = {"fName" : item, "count" : this.itemCount}
+        this.total = parseFloat(sessionStorage.getItem('total'))
+        this.foodItem = {"fName" : item, "count" : this.itemCount, "price":this.price}
         this.cart.push(this.foodItem)
+        this.total = this.total + this.price * this.itemCount
         sessionStorage.setItem("cart",JSON.stringify(this.cart)),
+        sessionStorage.setItem("total",this.total)
         alert("Added successfully")
       }else{
         alert("Please enter the number of items you need")
