@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-4 col-md-4 col-sm-4">
     <div style="padding : 30px">
-      <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-fluid" />
+      <img v-bind:src="img" />
      <div class="rowS">
         <h4>{{name}}</h4>
         <h5>price : {{price}}</h5>
@@ -34,12 +34,16 @@ export default {
   methods:{
     addToCart :function(item){
       this.cart = JSON.parse(sessionStorage.getItem("cart"))
+      this.total = parseFloat(sessionStorage.getItem('total'))
+
       if(this.cart == null){
         this.cart = []
       }
+      if(this.total == null || isNaN(this.total)){
+        this.total = 0
+      }
 
       if(this.itemCount > 0 && this.itemCount !=undefined){
-        this.total = parseFloat(sessionStorage.getItem('total'))
         this.foodItem = {"fName" : item, "count" : this.itemCount, "price":this.price}
         this.cart.push(this.foodItem)
         this.total = this.total + this.price * this.itemCount
@@ -49,13 +53,15 @@ export default {
       }else{
         alert("Please enter the number of items you need")
       }
-      
+     
     }
   },
   props: {
     name: String,
     desc: String,
-    price : Number
+
+    price : Number,
+    img :String
   },
   components: {
 
@@ -92,4 +98,10 @@ p{
 h5{
   color: red;
 }
+
+img{
+  height: 300px;
+  width: 360px;
+}
+
 </style>
