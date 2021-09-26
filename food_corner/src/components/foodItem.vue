@@ -59,6 +59,7 @@ export default {
   props: {
     name: String,
     desc: String,
+
     price : Number,
     img :String
   },
@@ -97,8 +98,10 @@ p{
 h5{
   color: red;
 }
+
 img{
   height: 300px;
   width: 360px;
 }
+
 </style>

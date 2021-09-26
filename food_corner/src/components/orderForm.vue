@@ -67,6 +67,7 @@ export default {
     };
   },
   methods:{
+
         removeItem : function(index){
             this.total = this.total - this.cart[index].price * this.cart[index].count
             console.log(this.cart[index].price)
@@ -122,6 +123,7 @@ export default {
                     });                  
             }         
         },
+
 
   },
   props: {

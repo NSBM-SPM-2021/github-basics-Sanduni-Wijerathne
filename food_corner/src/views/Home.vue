@@ -3,8 +3,8 @@
     <navbarb/>
     <div class="row">
         <foodItem name="Fried rice" price ="250" img="https://static.toiimg.com/thumb/75581339.cms?width=1200&height=900"/>
-        <foodItem name="Cheese pasta" price ="200"/>
-        <foodItem name="chiken koththu" price ="300"/>
+        <foodItem name="Cheese pasta" price ="200" img="https://static.toiimg.com/thumb/75581339.cms?width=1200&height=900"/>
+        <foodItem name="chiken koththu" price ="300" img="https://static.toiimg.com/thumb/75581339.cms?width=1200&height=900"/>
     </div>
   </div>
 </template>
@@ -32,6 +32,5 @@ export default {
   .row{
     margin-left: 15%;
     margin-right: 15%;
-
   }
 </style>
