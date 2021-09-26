@@ -2,9 +2,9 @@
   <div class="home">
     <navbarb/>
     <div class="row">
-        <foodItem name="Fried rice"/>
-        <foodItem name="Cheese pasta"/>
-        <foodItem name="chiken koththu"/>
+        <foodItem name="Fried rice" price ="250"/>
+        <foodItem name="Cheese pasta" price ="200"/>
+        <foodItem name="chiken koththu" price ="300"/>
     </div>
   </div>
 </template>
@@ -32,5 +32,6 @@ export default {
   .row{
     margin-left: 15%;
     margin-right: 15%;
+    
   }
 </style>

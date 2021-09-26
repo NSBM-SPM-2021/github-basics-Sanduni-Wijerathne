@@ -23,6 +23,7 @@
             <tr>
                 <th scope="col">Item</th>
                 <th scope="col">Number or items</th>
+                <th scope="col">Price</th>
                 <th scope="col"><button v-on:click="removeAll()" type="button" class="btn btn-danger">Remove All</button></th>
             </tr>
         </thead>
@@ -30,9 +31,18 @@
             <tr v-for="(item,index) in this.cart" :key="item">
                 <td scope="col">{{item.fName}}</td>
                 <td scope="col">{{item.count}}</td>
+                <td scope="col">{{item.price*item.count}}</td>
                 <td><button v-on:click="removeItem(index)" type="button" class="btn btn-danger">Remove</button></td>
             </tr>
         </tbody>
+    </table>
+     <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Total</th>
+                <th scope="col">{{total}}</th>
+            </tr>
+        </thead>
     </table>
     <button v-on:click="order()" class="btn btn-primary">Place Order</button>
     </form>
@@ -45,6 +55,7 @@ export default {
   name: "orderForm",
   mounted() {
       this.cart = JSON.parse(sessionStorage.getItem('cart'))
+      this.total = parseFloat(sessionStorage.getItem('total'))
     },
   data() {
     return {
@@ -57,12 +68,18 @@ export default {
   },
   methods:{
       removeItem : function(index){
+        this.total = this.total - this.cart[index].price * this.cart[index].count
+        console.log(this.cart[index].price)
+        console.log(this.total)
         this.cart.splice(index,1)
         sessionStorage.setItem("cart",JSON.stringify(this.cart))
+        sessionStorage.setItem("total",this.total)
       },
       removeAll : function(){
         this.cart = []
         sessionStorage.setItem("cart",JSON.stringify(this.cart))
+        this.total = 0
+        sessionStorage.setItem("total",this.total)
       },
       order : function(){
           if(this.cart.length == 0){
