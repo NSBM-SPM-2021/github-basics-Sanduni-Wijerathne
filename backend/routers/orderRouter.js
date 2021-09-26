@@ -9,6 +9,7 @@ router.post('/order/new',async (req,res)=>{
     try {
         const order = new orderModel(req.body)
         await order.save();
+        console.log("new order")
         res.status(200).send()
     } catch (error) {
         console.log(error)

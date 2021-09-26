@@ -20,11 +20,23 @@ const orderSchema = new mongoose.Schema({
         required : false
     },
     items:[{
-        item:{
+        fName:{
             type : String,
             required : true
+        },
+        count:{
+            type : Number,
+            required : true
+        },
+        price:{
+            type : Number,
+            required : true
         }
-    }]
+    }],
+    total:{
+        type : Number,
+        required:true
+    }
     
 })
 
