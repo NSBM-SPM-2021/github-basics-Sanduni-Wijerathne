@@ -59,7 +59,10 @@ export default {
   props: {
     name: String,
     desc: String,
+<<<<<<< HEAD
 
+=======
+>>>>>>> admin_panel_orders
     price : Number,
     img :String
   },
@@ -98,10 +101,16 @@ p{
 h5{
   color: red;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> admin_panel_orders
 img{
   height: 300px;
   width: 360px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> admin_panel_orders
 </style>

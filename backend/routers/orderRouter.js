@@ -18,7 +18,7 @@ router.post('/order/new',async (req,res)=>{
 
 })
 
-router.get('/order/all',auth,async(req,res)=>{
+router.get('/order/all',async(req,res)=>{
     try {
         const orders = await orderModel.find()
         res.status(200).send(orders)
@@ -40,7 +40,7 @@ router.post('/order/close',auth,async(req,res)=>{
     }
 })
 
-router.post('/order/delete',auth,async (req,res)=>{
+router.post('/order/delete',async (req,res)=>{
     orderModel.findByIdAndDelete(req.body.id,function(err,doc){
         if(err){
             res.status(500).send(err)

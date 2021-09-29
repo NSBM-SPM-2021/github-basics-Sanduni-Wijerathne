@@ -67,6 +67,7 @@ export default {
     };
   },
   methods:{
+<<<<<<< HEAD
 
         removeItem : function(index){
             this.total = this.total - this.cart[index].price * this.cart[index].count
@@ -125,6 +126,62 @@ export default {
         },
 
 
+=======
+        removeItem : function(index){
+            this.total = this.total - this.cart[index].price * this.cart[index].count
+            console.log(this.cart[index].price)
+            console.log(this.total)
+            this.cart.splice(index,1)
+            sessionStorage.setItem("cart",JSON.stringify(this.cart))
+            sessionStorage.setItem("total",this.total)
+        },
+        removeAll : function(){
+            this.cart = []
+            sessionStorage.setItem("cart",JSON.stringify(this.cart))
+            this.total = 0
+            sessionStorage.setItem("total",this.total)
+        },
+        order : async function(){
+            console.log(process.env.VUE_APP_backend + 'order/new')
+            if(this.cart.length == 0){
+                alert("There are no items in the cart. Please add more items before trying to order. Thank you!")
+            }else{
+                    if(this.cusName == ""){
+                        alert("Customer name required")
+                        return
+                    }
+                    if(this.phone == ""){
+                        alert("Phone number required")
+                        return
+                    }
+                    if(this.address == ""){
+                        alert("Address required")
+                        return
+                    }
+                    var self = this
+                    //Call to backend
+                    await axios.post(process.env.VUE_APP_backend + 'order/new',{
+                        cusName : this.cusName,
+                        Phone : this.phone,
+                        address : this.address,
+                        items : this.cart,
+                        total : this.total
+                    })
+                    .then(function(){
+                        
+                        self.cart = []
+                        self.total = 0
+                        sessionStorage.setItem("cart",JSON.stringify(self.cart))
+                        sessionStorage.setItem("total",JSON.stringify(self.total))
+                        self.$router.push({ path: '/orderCreated'})
+                        
+                    }).catch(function (error) {
+                         alert("An error occured. please try again later. " + error)
+                    });                  
+            }         
+        },
+
+>>>>>>> admin_panel_orders
   },
   props: {
    
