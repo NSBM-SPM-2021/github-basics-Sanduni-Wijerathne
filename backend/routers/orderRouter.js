@@ -20,7 +20,7 @@ router.post('/order/new',async (req,res)=>{
 
 router.get('/order/all',async(req,res)=>{
     try {
-        const orders = await orderModel.find()
+        const orders = await orderModel.find({status:false})
         res.status(200).send(orders)
     } catch (error) {
         console.log(error)
@@ -28,7 +28,7 @@ router.get('/order/all',async(req,res)=>{
     }
 })
 
-router.post('/order/close',auth,async(req,res)=>{
+router.post('/order/close',async(req,res)=>{
     try {
         const order = await orderModel.findById(req.body.id)
         order.status = true
