@@ -6,7 +6,8 @@ import admin from "../views/admin.vue"
 import login from "../views/login.vue"
 
 function routerGuard(to,from,next){
-  var isAuth = localStorage.getItem('isAuth')
+  var isAuth = JSON.parse(sessionStorage.getItem('isAuth'))
+  console.log(isAuth)
   if(isAuth == true){
     next()
   }else{

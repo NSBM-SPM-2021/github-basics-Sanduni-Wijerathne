@@ -4,26 +4,50 @@
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
             <h4 class="modal-title">Login to Your Account</h4>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required="required">
+                <input v-model="username" type="text" class="form-control" placeholder="Username" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="required">
+                <input v-model="pw" type="password" class="form-control" placeholder="Password" required="required">
             </div>
 
-            <input class="btn btn-primary btn-block btn-lg" value="Login">              
+            <button v-on:click="login" >Login</button>            
         </form>			
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
     name: "login",
     data:function() {
         return{
-
+            username : String,
+            pw : String
         } 
     },
+    methods:{
+        login :function(){
+            var self = this
+            axios.post(process.env.VUE_APP_backend + 'admin/login',{
+                userName : this.username,
+                password : this.pw
+            }).then(function(res){
+                console.log(res.status)
+                if(res.status == 200){
+                console.log('succcess')
+                sessionStorage.setItem('isAuth',JSON.stringify(true))
+                self.$router.push({ path:'/admin'})
+            }else if(res.status == 401){
+                alert("Username or password incorrect")
+            }
+
+                    
+                }).catch(function (error) {
+                        alert("An error occured. please try again later. " + error)
+                }); 
+        }
+    }
 };
 </script>
 
