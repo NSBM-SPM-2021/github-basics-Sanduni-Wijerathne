@@ -5,7 +5,7 @@
         Food Corner
     </a>
     <h3><b>Order list</b></h3>
-    <button class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+    <button v-on:click="logout"  class="btn btn-outline-success my-2 my-sm-0">Logout</button>
   
 </nav>
 </template>
@@ -14,5 +14,12 @@
 
 export default {
   name: "adminNav",
+  methods:{
+    logout : function(){
+      console.log('logout')
+      sessionStorage.setItem('isAuth',JSON.stringify(false))
+      this.$router.push({ path:'/'})
+    }
+  }
 };
 </script>

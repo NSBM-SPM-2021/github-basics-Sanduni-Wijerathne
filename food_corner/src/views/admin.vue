@@ -22,7 +22,6 @@ export default {
     .then(function(res){
       self.orders = res.data
     })
-    console.log(this.orders[0]._id)
   },
   data:function() {
     return{
