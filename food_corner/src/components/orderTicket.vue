@@ -26,31 +26,14 @@
             <h6>Phone : {{cusPhone}}</h6>
             <h6>Address : {{address}}</h6>
             <div class="row">
-<<<<<<< HEAD
-                <button v-on:click="deleteTicket()" type="button" class="btn btn-danger">Delete</button>
-=======
                 <button v-on:click="deleteTicket(id)" type="button" class="btn btn-danger">Delete</button>
->>>>>>> admin_panel_orders
-                <button v-on:click="completeTicket()" type="button" class="btn btn-danger">Completed</button>
+                <button v-on:click="completeTicket(id)" type="button" class="btn btn-danger">Completed</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-    export default {
-    name: "ticket",
-    props: {
-        tNumber : String,
-        items : [],
-        cusName:String,
-        cusPhone:String,
-        address:String,
-        total:String
-    },
-    };
-=======
 const axios = require("axios")
 export default {
 name: "ticket",
@@ -70,10 +53,16 @@ methods:{
         }).then(function() {
             location.reload()
         })
+    },
+    completeTicket : async function(ticketId){
+        await axios.post(process.env.VUE_APP_backend + 'order/close',{
+            id:ticketId
+        }).then(function(){
+            location.reload()
+        })
     }
 }
 }
->>>>>>> admin_panel_orders
 </script>
 
 <style scoped>
