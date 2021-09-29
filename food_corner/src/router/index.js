@@ -5,6 +5,15 @@ import orderCreated from "../views/orderCreated.vue"
 import admin from "../views/admin.vue"
 import login from "../views/login.vue"
 
+function routerGuard(to,from,next){
+  var isAuth = localStorage.getItem('isAuth')
+  if(isAuth == true){
+    next()
+  }else{
+    next('/login')
+  }
+}
+
 const routes = [
   {
     path: "/",
@@ -23,6 +32,7 @@ const routes = [
   },
   {
     path: "/admin",
+    beforeEnter :routerGuard,
     name: "admin",
     component: admin,
   
