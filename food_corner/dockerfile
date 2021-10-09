@@ -15,6 +15,5 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-RUN npm install -g pm2
-CMD pm2 start server.js
-EXPOSE 3454
+CMD npm run serve
+EXPOSE 8084
