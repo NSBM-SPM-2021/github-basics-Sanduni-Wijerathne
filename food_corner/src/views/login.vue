@@ -22,8 +22,8 @@ export default {
     name: "login",
     data:function() {
         return{
-            username : String,
-            pw : String
+            username : "",
+            pw : ""
         } 
     },
     methods:{
