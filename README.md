@@ -22,33 +22,34 @@ CI/CD pipeline - Jenkins
 
 <h3>Food items screen</h3>
 
-![home](https://drive.google.com/file/d/1u4yNwbZx5_MpSV9GU-J20xOpWEngAjND/view?usp=sharing)
+![home](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/foodCorner.png)
 
-image - checkout
+![checkout](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/checkout.png)
 
-image - admin
+![Admin](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/admin.png)
 
 <h2>Trello</h2>
 
 <h3>URL</h3> https://trello.com/invite/b/o1jnTfsH/b2f5ae2ef6a63504feccc35be4c5999f/food-corner
 
-image trello
+![trello](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/trello.png)
 
-image user story
+![userstory](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/userStory.png)
 
 
 <h2> Hosting</h2>
 Used a Google cloud VPC
-image
+
+![hosting](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/hosting.png)
 
 <h2>CI/CD Pipeline</h2>
 User jenkins for deployments
 
-image
+![jenkins](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/jenkins.png)
 
 
 <h2>Unit testing</h2>
 Used Jest framework
 
-image 
+![UnitTesting](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/unitTesting.png)
 
