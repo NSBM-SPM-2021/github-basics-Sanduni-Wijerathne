@@ -42,6 +42,8 @@ Used a Google cloud VPC
 
 ![hosting](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/hosting.png)
 
+![docker](https://github.com/NSBM-SPM-2021/github-basics-Sanduni-Wijerathne/blob/main/readme_util/docker.png)
+
 <h2>CI/CD Pipeline</h2>
 User jenkins for deployments
 
